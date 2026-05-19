@@ -107,10 +107,10 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <motion class="container-fluid">
-            <motion class="logo">
+        <div class="container-fluid">
+            <div class="logo">
                 <img class="myimg" src="{{ url_for('static', filename='images/img.png') }}" alt="">
-            </motion>
+            </div>
 
             <a class="navbar-brand" href="#">Health Center</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,7 +132,7 @@
                     </li>
                 </ul>
             </div>
-        </motion>
+        </div>
     </nav>
 
     <h1 class="mt-4 my-4 text-center text-green">Health Care Center</h1>
@@ -144,12 +144,12 @@
         </p>
 
         <div class="chatbot-container">
-            <motion id="chatMessages" class="chat-messages" aria-live="polite"></motion>
-            <motion class="chat-input-area">
+            <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+            <div class="chat-input-area">
                 <input type="text" id="chatInput" class="form-control" placeholder="Type your symptoms here..." autocomplete="off">
                 <button type="button" id="sendChatBtn" class="btn btn-primary">Send</button>
-            </motion>
-        </motion>
+            </div>
+        </div>
     </div>
 
     <h1 class="text-center my-4 mt-4" id="resultsHeading" style="display: none;">Our AI System Results</h1>
@@ -165,82 +165,82 @@
     </div>
 
     <!-- Disease Modal -->
-    <motion class="modal fade" id="diseaseModal" tabindex="-1" aria-labelledby="diseaseModalLabel" aria-hidden="true">
-        <motion class="modal-dialog">
-            <motion class="modal-content">
-                <motion class="modal-header" style="background-color: #020606; color:white;">
+    <div class="modal fade" id="diseaseModal" tabindex="-1" aria-labelledby="diseaseModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
                     <h5 class="modal-title" id="diseaseModalLabel">Predicted Disease</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </motion>
-                <motion class="modal-body"><p id="diseaseModalBody"></p></motion>
-            </motion>
-        </motion>
-    </motion>
+                </div>
+                <div class="modal-body"><p id="diseaseModalBody"></p></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Description Modal -->
-    <motion class="modal fade" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
-        <motion class="modal-dialog">
-            <motion class="modal-content">
-                <motion class="modal-header" style="background-color: #020606; color:white;">
+    <div class="modal fade" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
                     <h5 class="modal-title" id="descriptionModalLabel">Description</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </motion>
-                <motion class="modal-body"><p id="descriptionModalBody"></p></motion>
-            </motion>
-        </motion>
-    </motion>
+                </div>
+                <div class="modal-body"><p id="descriptionModalBody"></p></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Precaution Modal -->
-    <motion class="modal fade" id="precautionModal" tabindex="-1" aria-labelledby="precautionModalLabel" aria-hidden="true">
-        <motion class="modal-dialog">
-            <motion class="modal-content">
-                <motion class="modal-header" style="background-color: #020606; color:white;">
+    <div class="modal fade" id="precautionModal" tabindex="-1" aria-labelledby="precautionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
                     <h5 class="modal-title" id="precautionModalLabel">Precaution</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </motion>
-                <motion class="modal-body"><ul id="precautionModalBody"></ul></motion>
-            </motion>
-        </motion>
-    </motion>
+                </div>
+                <div class="modal-body"><ul id="precautionModalBody"></ul></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Medications Modal -->
-    <motion class="modal fade" id="medicationsModal" tabindex="-1" aria-labelledby="medicationsModalLabel" aria-hidden="true">
-        <motion class="modal-dialog">
-            <motion class="modal-content">
-                <motion class="modal-header" style="background-color: #020606; color:white;">
+    <div class="modal fade" id="medicationsModal" tabindex="-1" aria-labelledby="medicationsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
                     <h5 class="modal-title" id="medicationsModalLabel">Medications</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </motion>
-                <motion class="modal-body"><ul id="medicationsModalBody"></ul></motion>
-            </motion>
-        </motion>
-    </motion>
+                </div>
+                <div class="modal-body"><ul id="medicationsModalBody"></ul></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Workouts Modal -->
-    <motion class="modal fade" id="workoutsModal" tabindex="-1" aria-labelledby="workoutsModalLabel" aria-hidden="true">
-        <motion class="modal-dialog">
-            <motion class="modal-content">
-                <motion class="modal-header" style="background-color: #020606; color:white;">
+    <div class="modal fade" id="workoutsModal" tabindex="-1" aria-labelledby="workoutsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
                     <h5 class="modal-title" id="workoutsModalLabel">Workouts</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </motion>
-                <motion class="modal-body"><ul id="workoutsModalBody"></ul></motion>
-            </motion>
-        </motion>
-    </motion>
+                </div>
+                <div class="modal-body"><ul id="workoutsModalBody"></ul></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Diets Modal -->
-    <motion class="modal fade" id="dietsModal" tabindex="-1" aria-labelledby="dietsModalLabel" aria-hidden="true">
-        <motion class="modal-dialog">
-            <motion class="modal-content">
-                <motion class="modal-header" style="background-color: #020606; color:white;">
+    <div class="modal fade" id="dietsModal" tabindex="-1" aria-labelledby="dietsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
                     <h5 class="modal-title" id="dietsModalLabel">Diets</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </motion>
-                <motion class="modal-body"><ul id="dietsModalBody"></ul></motion>
-            </motion>
-        </motion>
-    </motion>
+                </div>
+                <div class="modal-body"><ul id="dietsModalBody"></ul></div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script>
@@ -271,7 +271,7 @@
         }
 
         function addBotMessage(html) {
-            const div = document.createElement('motion');
+            const div = document.createElement('div');
             div.className = 'chat-message bot';
             div.innerHTML = html;
             chatMessages.appendChild(div);
@@ -280,7 +280,7 @@
         }
 
         function showTyping() {
-            const div = document.createElement('motion');
+            const div = document.createElement('div');
             div.className = 'chat-message bot chat-typing';
             div.id = 'typingIndicator';
             div.textContent = 'Analyzing your symptoms...';
@@ -371,7 +371,7 @@
             labels.forEach(({ type, label, color }) => {
                 html += `<button type="button" class="option-btn chat-option" data-type="${type}" style="background:${color};">${label}</button>`;
             });
-            html += '</motion>';
+            html += '</div>';
 
             const msg = addBotMessage(html);
             msg.querySelectorAll('.chat-option').forEach(btn => {
@@ -439,3 +439,4 @@
     </script>
 </body>
 </html>
+
