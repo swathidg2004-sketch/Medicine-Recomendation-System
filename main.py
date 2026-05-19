@@ -1,15 +1,13 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 import numpy as np
 import pandas as pd
 import pickle
 
-import webbrowser 
-webbrowser.open("http://127.0.0.1:5000")
+
 # Flask app
 app = Flask(__name__)
 
 # ========================= LOAD DATASETS =========================
-
 sym_des = pd.read_csv("symtoms_df.csv")
 precautions = pd.read_csv("precautions_df.csv")
 workout = pd.read_csv("workout_df.csv")
@@ -316,6 +314,41 @@ def home():
     return render_template('index.html')
 
 
+@app.route('/api/predict', methods=['POST'])
+def api_predict():
+    data = request.get_json(silent=True) or {}
+    symptoms = data.get('symptoms', '')
+
+    if not symptoms or not str(symptoms).strip():
+        return jsonify({'success': False, 'message': 'Please enter your symptoms.'}), 400
+
+    user_symptoms = [s.strip() for s in str(symptoms).split(',') if s.strip()]
+    predicted_disease = get_predicted_value(user_symptoms)
+
+    if predicted_disease == "No matching symptoms found":
+        return jsonify({
+            'success': False,
+            'message': 'Symptoms not recognized. Please enter valid symptoms separated by commas (e.g. fever, headache, cough).'
+        }), 400
+
+    dis_des, precautions, medications, rec_diet, workout = helper(predicted_disease)
+
+    my_precautions = []
+    if len(precautions) > 0:
+        for i in precautions[0]:
+            my_precautions.append(str(i))
+
+    return jsonify({
+        'success': True,
+        'predicted_disease': str(predicted_disease),
+        'description': str(dis_des),
+        'precautions': my_precautions,
+        'medications': [str(m) for m in medications],
+        'diet': [str(d) for d in rec_diet],
+        'workout': [str(w) for w in workout],
+    })
+
+
 @app.route('/about')
 def about():
     return render_template("about.html")
@@ -339,4 +372,12 @@ def blog():
 # ========================= RUN APP =========================
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    import threading
+    import webbrowser
+
+    def open_browser():
+        webbrowser.open("http://127.0.0.1:5000")
+
+    threading.Timer(1, open_browser).start()
+    app.run(debug=True)
+    
